@@ -11,7 +11,7 @@ function Movie() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/movies?limit=${limit}&page=${page}`)
+      .get(`https://movie-review-app-react.onrender.com/api/movies?limit=${limit}&page=${page}`)
       .then((res) => {
         setMovies(res.data.movies || res.data);
       })

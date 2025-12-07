@@ -7,7 +7,7 @@ function Banner() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/movies?limit=20")
+      .get("https://movie-review-app-react.onrender.com/api/movies?limit=20")
       .then((res) => {
         const data = res.data.movies || res.data;
         setMovies(data);

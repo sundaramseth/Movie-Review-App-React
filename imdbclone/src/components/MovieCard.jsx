@@ -1,6 +1,11 @@
 import { BsBookmarkCheckFill, BsBookmarkPlus, BsBookmarkPlusFill } from "react-icons/bs";
+import { MovieContext } from "./MovieContext";
+import React from "react";
 
-function MovieCard({ poster_path, title, rating, handleWatchList, movie, handleRemoveToWatchlist, watchlist }) {
+function MovieCard({ poster_path, title, rating, movie }) {
+
+  
+  const {handleWatchList, handleRemoveToWatchlist, watchlist} = React.useContext(MovieContext);
 
   function doesContain(movie){
 

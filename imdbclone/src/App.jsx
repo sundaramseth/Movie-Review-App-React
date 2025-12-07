@@ -6,6 +6,7 @@ import Movie from './components/Movie'
 import Navbar from './components/Navbar'
 import WatchList from './components/WatchList'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import { MovieContext } from './components/MovieContext'
 
 function App() {
 
@@ -42,10 +43,24 @@ function App() {
         <Route path="/" element={
         <>
         <Banner/>
-        <Movie handleWatchList={handleWatchList} handleRemoveToWatchlist={handleRemoveToWatchlist} watchlist={watchlist}/>
+        <MovieContext.Provider
+        value={{
+          handleWatchList,
+          handleRemoveToWatchlist,
+          watchlist,
+        }}
+      >
+        <Movie />
+      </MovieContext.Provider>
+
+        {/* <Movie handleWatchList={handleWatchList} handleRemoveToWatchlist={handleRemoveToWatchlist} watchlist={watchlist}/> */}
         </>
       } />
-        <Route path="/watchlist" element={<WatchList watchlist={watchlist} setWatchList={setWatchList} handleRemoveToWatchlist={handleRemoveToWatchlist} />} />
+        <Route path="/watchlist" element={
+          <MovieContext.Provider value={{watchlist,setWatchList,handleRemoveToWatchlist}}>
+          <WatchList />
+          </MovieContext.Provider>
+          } />
       </Routes>  
     </BrowserRouter>
     </>

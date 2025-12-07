@@ -3,7 +3,8 @@ import axios from "axios";
 import MovieCard from "./MovieCard";
 import Pagination from "./Pagination";
 
-function Movie({handleWatchList, handleRemoveToWatchlist, watchlist}) {
+
+function Movie() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const limit = 18;
@@ -32,7 +33,7 @@ function Movie({handleWatchList, handleRemoveToWatchlist, watchlist}) {
       {/* Movie Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-items-center">
         {movies.map((movie, index) => (
-          <MovieCard key={index} watchlist={watchlist} movie={movie} poster_path={movie.poster} title={movie.title} rating={movie.rating} handleWatchList={handleWatchList} handleRemoveToWatchlist={handleRemoveToWatchlist} />
+          <MovieCard key={index} movie={movie} poster_path={movie.poster} title={movie.title} rating={movie.rating} />
         ))}
       </div>
 

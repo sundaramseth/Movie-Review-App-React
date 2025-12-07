@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { BsArrowDown, BsArrowUp, BsBoxArrowDown, BsSearch, BsTrash } from "react-icons/bs";
 import genreID from '../utils/genre';
-function WatchList({watchlist, handleRemoveToWatchlist, setWatchList}) {
+import { MovieContext } from './MovieContext';
+function WatchList() {
+
+  const {watchlist,handleRemoveToWatchlist,setWatchList} = React.useContext(MovieContext);
 
 
   const [search,setSearch] = useState('');
